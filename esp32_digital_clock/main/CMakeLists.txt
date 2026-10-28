@@ -1,0 +1,24 @@
+idf_component_register(
+    SRCS
+        "main.cpp"
+        "I2CBus.cpp"
+        "DS1307.cpp"
+        "SSD1306.cpp"
+        "ButtonManager.cpp"
+        "TimeManager.cpp"
+        "AlarmEngine.cpp"
+        "StopwatchEngine.cpp"
+        "ClockUI.cpp"
+        "SelfTest.cpp"
+    INCLUDE_DIRS "."
+    PRIV_REQUIRES
+        esp_driver_i2c
+        esp_driver_gpio
+        esp_driver_ledc
+        esp_timer
+        esp_wifi
+        esp_netif
+        esp_event
+        nvs_flash
+        lwip
+)

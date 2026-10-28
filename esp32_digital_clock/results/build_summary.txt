@@ -1,0 +1,2 @@
+Bootloader binary size 0x6640 bytes. 0x9c0 bytes (9%) free.
+esp32_digital_clock.bin binary size 0xcf3a0 bytes. Smallest app partition is 0x177000 bytes. 0xa7c60 bytes (45%) free.

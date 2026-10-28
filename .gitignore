@@ -1,0 +1,7 @@
+# ESP-IDF build output
+build/
+build_qemu/
+sdkconfig.old
+# Report (not tracked) and Word lock files
+*.docx
+~$*

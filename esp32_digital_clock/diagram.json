@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "ESP32 Modular Digital Clock",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-ssd1306", "id": "oled", "top": -73.66, "left": 211.43, "attrs": { "i2cAddress": "0x3c" } },
+    { "type": "wokwi-ds1307", "id": "rtc", "top": 61.8, "left": 230.5, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "bz", "top": -103.2, "left": -142.2, "attrs": { "volume": "0.1" } },
+    { "type": "wokwi-pushbutton", "id": "btn_mode", "top": 297.5, "left": -153.6, "attrs": { "color": "red", "key": "m", "label": "MODE" } },
+    { "type": "wokwi-pushbutton", "id": "btn_set", "top": 297.5, "left": -57.6, "attrs": { "color": "green", "key": "s", "label": "SET" } },
+    { "type": "wokwi-pushbutton", "id": "btn_alarm", "top": 297.5, "left": 38.4, "attrs": { "color": "yellow", "key": "a", "label": "ALARM" } },
+    { "type": "wokwi-pushbutton", "id": "btn_lap", "top": 297.5, "left": 134.4, "attrs": { "color": "blue", "key": "l", "label": "LAP" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "oled:GND", "esp:GND.2", "black", [] ],
+    [ "oled:VCC", "esp:3V3", "red", [] ],
+    [ "oled:SCL", "esp:22", "green", [] ],
+    [ "oled:SDA", "esp:21", "blue", [] ],
+
+    [ "rtc:GND", "esp:GND.2", "black", [] ],
+    [ "rtc:5V", "esp:5V", "red", [] ],
+    [ "rtc:SCL", "esp:22", "green", [] ],
+    [ "rtc:SDA", "esp:21", "blue", [] ],
+
+    [ "bz:1", "esp:GND.1", "black", [] ],
+    [ "bz:2", "esp:25", "orange", [] ],
+
+    [ "btn_mode:1.r", "esp:18", "red", [] ],
+    [ "btn_mode:2.l", "esp:GND.1", "black", [] ],
+    [ "btn_set:1.r", "esp:19", "green", [] ],
+    [ "btn_set:2.l", "esp:GND.1", "black", [] ],
+    [ "btn_alarm:1.r", "esp:4", "gold", [] ],
+    [ "btn_alarm:2.l", "esp:GND.1", "black", [] ],
+    [ "btn_lap:1.r", "esp:5", "blue", [] ],
+    [ "btn_lap:2.l", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

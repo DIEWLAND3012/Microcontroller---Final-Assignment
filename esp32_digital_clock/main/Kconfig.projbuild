@@ -1,0 +1,44 @@
+menu "Digital Clock Configuration"
+
+    config CLOCK_ENABLE_WIFI
+        bool "Enable Wi-Fi + NTP"
+        default y
+        help
+            Disable only for QEMU, which does not emulate the Wi-Fi PHY.
+            Without Wi-Fi the clock runs on DS1307 time.
+
+    config CLOCK_WIFI_SSID
+        string "Wi-Fi SSID"
+        default "Wokwi-GUEST"
+        help
+            Access point to join for NTP. Wokwi only simulates "Wokwi-GUEST"
+            (open network). Use "iotexpo" when flashing the real lab board.
+
+    config CLOCK_WIFI_PASSWORD
+        string "Wi-Fi password"
+        default ""
+        help
+            Leave empty for Wokwi-GUEST. The lab AP "iotexpo" uses "12345678".
+
+    config CLOCK_WIFI_CHANNEL
+        int "Wi-Fi channel hint (0 = scan all)"
+        range 0 13
+        default 6
+        help
+            Wokwi-GUEST runs on channel 6; giving the channel skips the scan.
+
+    config CLOCK_NTP_SERVER
+        string "NTP server"
+        default "pool.ntp.org"
+
+    config CLOCK_TIMEZONE
+        string "POSIX TZ string"
+        default "ICT-7"
+        help
+            Thailand (UTC+7). POSIX sign is inverted, so UTC+7 is "ICT-7".
+
+    config CLOCK_RUN_SELF_TEST
+        bool "Run spiral unit self-tests at boot"
+        default y
+
+endmenu
